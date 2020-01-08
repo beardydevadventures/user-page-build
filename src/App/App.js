@@ -15,7 +15,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 const darkTheme = createMuiTheme({
   palette: {
     type: 'dark',
-  },
+  }
 });
 
 class App extends React.Component {
@@ -33,7 +33,7 @@ class App extends React.Component {
                 Github Page
               </Typography>
               <Button variant="contained" color="primary" href="https://matthewaisthorpe.com.au/">
-                View my Portfolio Site <ChevronRight />
+                View my Website <ChevronRight />
               </Button>
             </Grid>
             <Grid item xs={12}>
