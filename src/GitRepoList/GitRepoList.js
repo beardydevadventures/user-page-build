@@ -28,7 +28,7 @@ class GitRepoList extends React.Component {
             headers
         }
 
-        fetch("https://api.github.com/users/mattyace/repos", init)
+        fetch("https://api.github.com/users/mattaisthorpe/repos", init)
             .then(res => res.json())
             .then(
                 (result) => {
