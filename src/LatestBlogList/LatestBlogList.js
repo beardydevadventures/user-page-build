@@ -1,12 +1,14 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import CreateOutlined from '@material-ui/icons/CreateOutlined';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+import Description from '@material-ui/icons/Description';
 
 class LatestBlogList extends React.Component {
     constructor(props) {
@@ -40,9 +42,9 @@ class LatestBlogList extends React.Component {
     render() {
         const { error, isLoaded, items } = this.state;
         if (error) {
-            return <div>Error: {error.message}</div>;
+            console.log("Error: " + error.message);
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <LinearProgress />;
         } else {
             return (
                 <Card>
@@ -50,13 +52,13 @@ class LatestBlogList extends React.Component {
                         <Typography variant="h4" gutterBottom>
                             Latest Blog Posts
                         </Typography>
-                        <List component="nav" aria-label="main mailbox folders">
+                        <List component="nav">
                             {items.map(function (item) {
                                 return (
                                     <React.Fragment key={item.id}>
                                         <ListItem button component="a" href={item.link}>
                                             <ListItemIcon>
-                                                <CreateOutlined />
+                                                <Description />
                                             </ListItemIcon>
                                             <ListItemText primary={item.title.rendered} secondary={item.excerpt.rendered.replace(/<[^>]*>?/gm, '')}/>
                                         </ListItem>
